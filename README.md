@@ -1,6 +1,6 @@
 ## Transformation History Illustration
 
-Just a quick illustration of how Transformation History can be used to help check that your regressors are being constructed as intended.
+A quick illustration of how Transformation History can be used to help check that your regressors are being constructed as intended.
 
 After cloning this repo do the following
 ```
@@ -19,6 +19,6 @@ I'm assuming you're using VSCode?  If so, just back up to the main dirctory (I'm
 ```
 cd ..
 code ./
-``
+```
 
 Then open `transformation_history_example.ipynb` and select the `.venv` as the Python Kernel.  Then things should just run!
