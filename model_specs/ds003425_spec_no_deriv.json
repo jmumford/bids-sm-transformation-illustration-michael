@@ -5,6 +5,12 @@
       "subject": [
         "01"
       ],
+      "run": [
+        "01"
+      ],
+      "session": [
+        "01"
+      ],
       "task": [
         "learning"
       ]
@@ -14,9 +20,7 @@
         "Level": "Run",
         "Name": "run_level",
         "GroupBy": [
-          "run",
-          "subject", 
-          "session"
+          "run"
         ],
         "Transformations": {
           "Transformer": "pybids-transforms-v1",
@@ -24,14 +28,14 @@
             {
               "Name": "Factor",
               "Input": [
-                "trial_type"
+                "other_type"
               ]
             },
             {
               "Name": "Convolve",
               "Model": "spm",
               "Input": [
-                "trial_type.*"
+                "other_type.*"
               ]
             }
           ]
@@ -39,7 +43,8 @@
         "Model": {
           "X": [
             1,
-            "trial_type.*"
+            "other_type.one",
+            "other_type.two"
           ],
           "Type": "glm"
         },
@@ -47,59 +52,16 @@
           {
             "Name": "oneVtwo",
             "ConditionList": [
-              "trial_type.1",
-              "trial_type.2"
+              "other_type.one",
+              "other_type.two"
             ],
             "Weights": [
               1,
               -1
             ],
             "Test": "t"
-          },
-          {
-            "Name": "oneVbase",
-            "ConditionList": [
-              "trial_type.1"
-            ],
-            "Weights": [
-              1
-            ],
-            "Test": "t"
           }
         ]
-      },
-      {
-        "Level": "Subject",
-        "Name": "subject_level",
-        "GroupBy": [
-          "subject",
-          "contrast"
-        ],
-        "Model": {
-          "X": [
-            1
-          ],
-          "Type": "glm"
-        },
-        "DummyContrasts": {
-          "Test": "t"
-        }
-      },
-      {
-        "Level": "Dataset",
-        "Name": "data_level",
-        "GroupBy": [
-          "contrast"
-        ],
-        "Model": {
-          "X": [
-            1
-          ],
-          "Type": "glm"
-        },
-        "DummyContrasts": {
-          "Test": "t"
-        }
       }
     ]
   }
