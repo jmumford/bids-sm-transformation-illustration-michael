@@ -10,7 +10,6 @@ wheels/
 .venv
 
 # Ignore data
-# Data
 ds000102
 ds002741
 ds003507
