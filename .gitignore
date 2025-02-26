@@ -10,7 +10,13 @@ wheels/
 .venv
 
 # Ignore data
-Data
+# Data
+ds000102
+ds002741
+ds003507
 
 # VSCode
 .vscode
+
+# Ignore my Junk directory
+Junk
